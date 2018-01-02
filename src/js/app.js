@@ -15,12 +15,9 @@ angular.module("app", [])
             todoList.todoText = '';
         };
 
-        todoList.removeItem = function() {
-            
+        todoList.removeItem = function(todo) {
+            todoList.listItems = todoList.listItems.filter(x => x.text != todo.text);
         };
-
-
-
 
 
     });

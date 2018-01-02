@@ -19,7 +19,7 @@
 
 </head>
     <body>
-        <h1>Hello World!</h1>
+        
         <h2>To Do:</h2>
         <div ng-controller="TodoController as todoList">
         
@@ -27,7 +27,7 @@
             <li ng-repeat="todo in todoList.listItems">
                 <input type="checkbox" ng-model="todo.done" />
                 <span class="done-{{todo.done}}">{{todo.text}}</span>
-                <span class="remove-button" ng-hide="{{!todo.done}}"><button>Remove</button></span>
+                <span class="remove-button" ng-show="todo.done"><button ng-click="todoList.removeItem(todo)">Remove</button></span>
 
           </label>
             </li>
