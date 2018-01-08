@@ -6,10 +6,10 @@
 
 <title>FCC Twitch Viewer</title>
 
-<link href="../css/styles.css" rel="stylesheet" />
+<link href="css/styles.css" rel="stylesheet" />
 
 <!-- Angular and other dev scripts -->
-<script src="../js/app.js"></script>
+<script src="js/app.js"></script>
 
 <!-- Roboto Google Font -->
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -20,25 +20,36 @@
 </head>
     <body>
         
-        <h2>To Do:</h2>
-        <div ng-controller="TodoController as todoList">
+        <div ng-controller="app">
         
-        <ul>
-            <li ng-repeat="todo in todoList.listItems">
-                <input type="checkbox" ng-model="todo.done" />
-                <span class="done-{{todo.done}}">{{todo.text}}</span>
-                <span class="remove-button" ng-show="todo.done"><button ng-click="todoList.removeItem(todo)">Remove</button></span>
+            <h2>Live channels</h2>
+            <div class="live-channels" ng-repeat="channel in app.liveChannels">
+                <h2>{{channel.name}}</h2>
 
-          </label>
-            </li>
-        </ul>
-        <form ng-submit="todoList.addItem">
-            <input type="text" ng-model="todoList.todoText" /> 
-            <span><button ng-click="todoList.addItem()">Add item</button></span>
-        </form>
+            </div>
+            <h2>Offline channels</h2>
+            <div class="live-channels" ng-repeat="offlinechannel in app.offlineChannels">
+                <h2>{{offlinechannel.name}}</h2>
+
+            </div>
+
+            <!-- Add a placeholder for the Twitch embed -->
+            <div id="twitch-embed"></div>
+
+            <!-- Load the Twitch embed script -->
+            <script src="https://embed.twitch.tv/embed/v1.js"></script>
+
+            <!-- Create a Twitch.Embed object that will render within the "twitch-embed" root element. -->
+            <script type="text/javascript">
+            new Twitch.Embed("twitch-embed", {
+                width: 854,
+                height: 480,
+                channel: "Tizzleroo"
+            });
+            </script>
         </div>
     
-    <script src="../js/scripts.js"></script>
+    <script src="js/scripts.js"></script>
     </body>
     
 </html>
