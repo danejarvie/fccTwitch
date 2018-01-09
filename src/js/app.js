@@ -2,11 +2,12 @@
 var channelList = [ "freecodecamp", "nl_Kripp", "HSdogdog", "itsHafu", "BobRoss", "sentdex", "DisguisedToastHS", "Tizzleroo"];
 var twitchClientID = "nocu78lvcal2ijvy6slyc2soz3qqmo";
 //var channelApi = "https://wind-bow.gomix.me/twitch-api/channels/"; //freecodecamp workaround
-var channelApi = "https://api.twitch.tv/helix/users?login="; //latest url
+var channelApi = "https://api.twitch.tv/helix/users?login=nl_Kripp&login=Tizzleroo"; //latest url
 //var channelApi = "https://api.twitch.tv/kraken/channels/twitch"; //v5 url
 //var streamApi = "https://wind-bow.gomix.me/twitch-api/streams/";
 //var streamApi = "https://api.twitch.tv/kraken/streams/";
 var streamApi = "https://api.twitch.tv/helix/streams?user_id=81119098";
+//29795919
 var jsonpSuffix = "?callback=?";
 var channelHTML = "";
 var myHeaders = new Headers({
@@ -35,9 +36,13 @@ angular.module("app", [])
 
             
         });*/
-        fetch(streamApi, myInit)
+        fetch(channelApi, myInit)
                 .then(function(response){
-
+                    response.json().then(function(data) {
+                        console.log(data);
+                      });
+                
+                    
                 });
 
 

@@ -17,6 +17,8 @@
 <!-- FontAwesome CDN -->	
 <script src="https://use.fontawesome.com/e8030708c3.js"></script>
 
+<!-- Load the Twitch embed script -->
+<script src="https://embed.twitch.tv/embed/v1.js"></script>
 </head>
     <body>
         
@@ -32,21 +34,12 @@
                 <h2>{{offlinechannel.name}}</h2>
 
             </div>
-
+            <div id="response"></div>
             <!-- Add a placeholder for the Twitch embed -->
             <div id="twitch-embed"></div>
 
-            <!-- Load the Twitch embed script -->
-            <script src="https://embed.twitch.tv/embed/v1.js"></script>
-
-            <!-- Create a Twitch.Embed object that will render within the "twitch-embed" root element. -->
-            <script type="text/javascript">
-            new Twitch.Embed("twitch-embed", {
-                width: 854,
-                height: 480,
-                channel: "Tizzleroo"
-            });
-            </script>
+            
+            
         </div>
     
     <script src="js/scripts.js"></script>
